@@ -1,0 +1,1756 @@
+{
+    "eat something spicy": [
+        "Indian cuisine (curries & curry sides)",
+        "Mexican cuisine (salsas & chili)",
+        "Thai & Malaysian cuisine",
+        "Other spicy foods"
+    ],
+    "eat a lot of chocolate": [
+        "Chocolate candies",
+        "Chocolate brownies",
+        "Chocolate chip cookies",
+        "Chocolate pancakes",
+        "Chocolate lava cakes"
+    ],
+    "get food that is sour": [
+        "Sharp cheese",
+        "Pickled food",
+        "Acidic fruits",
+        "Salty food",
+        "Vinegary items"
+    ],
+    "have something crispy": [
+        "Salty snacks",
+        "Fried treats",
+        "Potato chips",
+        "Crackers and savory biscuits"
+    ],
+    "order something with chocolate": [
+        "Ice cream",
+        "Frozen yogurt",
+        "Brownies",
+        "Hot chocolate",
+        "Chocolate cake"
+    ],
+    "get the best meal of your life": [
+        "Michelin-starred menus",
+        "Innovative cheffed cuisines ",
+        "Themed tasting experiences ",
+        "Restaurant-hopping ",
+        "Celebrity-chef dinners"
+    ],
+    "be gluten free": [
+        "Fruit",
+        "Nuts and seeds",
+        "Gluten-free grains",
+        "Meat & fish",
+        "Non-wheat pasta"
+    ],
+    "eat something bitter": [
+        "Bitter vegetable",
+        "Dark chocolate",
+        "Coffee",
+        "Tea",
+        "Beer"
+    ],
+    "have a dessert": [
+        "Pie",
+        "Cakes",
+        "Custards",
+        "Pastry"
+    ],
+    "eat something with balsamic vinegar": [
+        "Chicken meals",
+        "Salad dishes",
+        "Stir fries",
+        "Sandwiches"
+    ],
+    "eat a sandwich": [
+        "Hearty toasted sandwiches",
+        "Filling grilled sandwiches",
+        "Fresh and vegetable sandwiches",
+        "Classic deli sandwiches",
+        "Unique sandwich combos"
+    ],
+    "have something with a lot of salt": [
+        "Canned soups",
+        "Crackers",
+        "Salami, Saucisson & other charcuterie",
+        "Pretzels"
+    ],
+    "have a dish with a lot of salt": [
+        "Soups",
+        "Snacks",
+        "Seafood",
+        "Salads",
+        "Sandwiches"
+    ],
+    "eat something with cinnamon": [
+        "Desserts",
+        "Breakfast items",
+        "Snacks",
+        "Baked goods",
+        "Savory dishes"
+    ],
+    "have something rich": [
+        "Rich desserts",
+        "Fried food",
+        "Decadent drinks",
+        "Savory snacks",
+        "Rich pasta",
+        "Indulgent entrees"
+    ],
+    "eat something that's sour": [
+        "Soursop",
+        "Berries",
+        "Tomatoes",
+        "Pickled fare",
+        "Soured milk"
+    ],
+    "eat a lot of sweets": [
+        "Dessert",
+        "Sweets",
+        "Fruit",
+        "Other sugary treats"
+    ],
+    "get a dish with a lot of acidity": [
+        "Tomatoes",
+        "Citrus fruits & juices",
+        "Yogurt",
+        "Vinegar",
+        "Wine"
+    ],
+    "get something sugary": [
+        "Sugary coffee drinks",
+        "Sugary drinks",
+        "Desserts"
+    ],
+    "eat food that is sugary": [
+        "Desserts",
+        "Candies and chocolates",
+        "Sugary drinks",
+        "Pastries & baked goods"
+    ],
+    "have something that smells like garlic": [
+        "Garlic bread",
+        "Roasted garlic cloves",
+        "White beans with garlic",
+        "Shakshuka with garlic",
+        "Lentils & garlic"
+    ],
+    "have something with cheese": [
+        "Melty cheese dishes",
+        "Grilled cheese sandwiches",
+        "Cheesy sides",
+        "Flexible cheese dishes",
+        "Cheesy classics"
+    ],
+    "get something heavy and fatty": [
+        "Hearty soups",
+        "Comfort foods",
+        "Fatty meats",
+        "Greasy fast food"
+    ],
+    "get food that smells like bacon": [
+        "Bacon",
+        "Bacon-flavored junk food",
+        "Bacon jerky"
+    ],
+    "get food that smells like garlic": [
+        "Italian fare",
+        "Asian fare",
+        "Spicy cuisine",
+        "Fresh garlic",
+        "Garlic herbs & oils"
+    ],
+    "eat something fermented": [
+        "Kombucha",
+        "Fermented drinks",
+        "Preserved foods",
+        "Pickled foods"
+    ],
+    "get food that is sweet": [
+        "Sugary foods",
+        "Sweets",
+        "Candies",
+        "Desserts"
+    ],
+    "get a salad": [
+        "Restaurant salads",
+        "Catered salads",
+        "Salads for dinner",
+        "Comfort salads",
+        "Salads for kids "
+    ],
+    "get something with vinegar ": [
+        "Salad with salad dressing",
+        "Fruit and vegetable salads",
+        "Vinaigrettes",
+        "Roasted vegetables ",
+        "Sauteed green vegetables like spinach or broccoli"
+    ],
+    "try an ethnic dish": [
+        "Thai dishes",
+        "Indian curries",
+        "Japanese dishes",
+        "Ethnic drinks"
+    ],
+    "have something with mushrooms": [
+        "Mushroom topping",
+        "Mushroom sauce",
+        "Crepes with mushrooms ",
+        "Warm mushroom saute"
+    ],
+    "pick something in-season": [
+        "Sweet corn",
+        "Peaches",
+        "Cherries",
+        "Berries",
+        "Green beans",
+        "Sweet bell peppers",
+        "Eggplants",
+        "Tomatoes ",
+        "Stone fruits",
+        "Summer squash"
+    ],
+    "eat something made with a blender": [
+        "Smoothies",
+        "Mixed drinks",
+        "Frostier drinks",
+        "Soupy blended drinks"
+    ],
+    "eat something from a grill": [
+        "Grilled poultry",
+        "Grilled steaks and burgers",
+        "Grilled vegetables",
+        "Grill-friendly desserts"
+    ],
+    "have a dish with lots of spice": [
+        "Spicy international",
+        "Tex-Mex",
+        "Curries",
+        "Stews",
+        "Chilis"
+    ],
+    "get something with avocado": [
+        "Creamy salads",
+        "Savory sauces",
+        "Starchy toppings",
+        "Dressings",
+        "Rich appetizers"
+    ],
+    "order something that's easy to make": [
+        "Salads",
+        "Soups",
+        "Baked potato",
+        "Sandwiches"
+    ],
+    "try a fruit flavor": [
+        "Citrus fruits",
+        "Tropical fruits",
+        "Stone fruits",
+        "Ripe berries",
+        "Frozen treats"
+    ],
+    "try something from a pot": [
+        "Comforting soups",
+        "Cozy chilis",
+        "Slow-cooked stews",
+        "Casserole classics",
+        "Baked pots"
+    ],
+    "have something pickled": [
+        "Sauerkraut",
+        "Cucumber pickles",
+        "Beets",
+        "Pickled peppers",
+        "Sourkraut"
+    ],
+    "try food that's not spicy": [
+        "Bland meats",
+        "White fish",
+        "Mild sides"
+    ],
+    "get sushi": [
+        "Sashimi",
+        "Sushi rolls",
+        "Other rice"
+    ],
+    "taste exotic dishes": [
+        "Curry and naan",
+        "Chopped cabbage",
+        "Pita and baba ganoush"
+    ],
+    "try ethnic food": [
+        "Foods from a particular cuisine",
+        "Dishes from a country",
+        "Food from a culture",
+        "Traditional meals",
+        "Authentic recipes"
+    ],
+    "be in the mood for breakfast": [
+        "Pancakes",
+        "Waffles",
+        "French Toast",
+        "Breakfast sandwiches"
+    ],
+    "try the dishes that are the opposite of keto": [
+        "Starchy carbs all day",
+        "Dessert breakfast",
+        "Fatty foods & sauces",
+        "High-sugar snacks"
+    ],
+    "get something that's not too spicy": [
+        "Western foods",
+        "Slightly spicy foods",
+        "Salads & vegetables",
+        "Not spicy meats",
+        "Not-too-spicy snacks"
+    ],
+    "eat something sour": [
+        "Vinegary dishes",
+        "Acidic fruits and veg",
+        "Fermented foods",
+        "Sour candies",
+        "Tart beverages"
+    ],
+    "find a dish with lots of cheese": [
+        "Cheese & bread",
+        "Pizza",
+        "Grilled cheese",
+        "Cheesy baked goods",
+        "Cheesy side dishes"
+    ],
+    "have a very salty meal": [
+        "Savory snacks",
+        "Processed cold cuts",
+        "Pickled veggies ",
+        "Salty meats",
+        "Salty potatoes "
+    ],
+    "eat seafood": [
+        "Fish",
+        "Clams",
+        "Oysters",
+        "Lobster",
+        "Scallops",
+        "Crab cakes",
+        "Caviar",
+        "Shrimp"
+    ],
+    "order delivery": [
+        "Appetizers",
+        "Burgers and sandwiches",
+        "Comfort foods",
+        "Salads and snacks",
+        "Pizza and pasta"
+    ],
+    "have a big meal": [
+        "A feast",
+        "A big dinner",
+        "A large buffet",
+        "A fancy spread"
+    ],
+    "get spicy food": [
+        "Spicy condiments",
+        "Fast food cuisine",
+        "Tried-and-true recipes",
+        "Eating out",
+        "Home-cooked comforts"
+    ],
+    "be fruity": [
+        "Fresh fruit",
+        "Dried fruit",
+        "Tropical fruit",
+        "Cooked fruit",
+        "Artificial fruit flavors"
+    ],
+    "have something with an Asian flair": [
+        "Asian cuisines",
+        "Asian sauces",
+        "Asian spices",
+        "Asian ingredients"
+    ],
+    "have a small meal": [
+        "Small eats and snacks"
+    ],
+    "eat something spicy and sour": [
+        "Thai food",
+        "Indian food",
+        "Latin food ",
+        "Fried Asian snacks",
+        "Sauces and dips"
+    ],
+    "eat something with a strong smell": [
+        "Strong cheeses",
+        "Mature wines",
+        "Fishy dishes",
+        "Rich soups"
+    ],
+    "choose something fancy": [
+        "Fancy appetizers",
+        "Gourmet main courses",
+        "Trendy desserts",
+        "Upgrade drinks"
+    ],
+    "have something sweet and sour": [
+        "Sweet and sour meat",
+        "Sweet and sour fish",
+        "Sweet and sour beans"
+    ],
+    "eat something that comes from far away": [
+        "Asian cuisines",
+        "Mediterranean cuisines",
+        "Indian cuisines",
+        "Mexican cuisines"
+    ],
+    "find food that comes from your grandpappy’s cabinets": [
+        "Canned mushrooms",
+        "Canned soups",
+        "Pre-made crust",
+        "Baking soda",
+        "Potato flakes",
+        "Brown sugar",
+        "Powdered sugar",
+        "Evaporated milk",
+        "Canned veggies",
+        "Pancake mix",
+        "Old-fashion"
+    ],
+    "have something with mustard": [
+        "Charcuterie",
+        "Burger fixings",
+        "French dip",
+        "Hot dogs and sausages"
+    ],
+    "try street food": [
+        "International foods",
+        "Sandwiches",
+        "Tacos and quesadillas",
+        "Skewered foods"
+    ],
+    "eat something made with a weird fruit": [
+        "Asian specialties",
+        "Exotic fruit dishes",
+        "Café-style goodies",
+        "Unusual toppings",
+        "Fruit jellies"
+    ],
+    "eat something you shouldn’t have": [
+        "Forbidden fruits",
+        "Junk foods",
+        "Dangerous dairy",
+        "Forgotten favorites"
+    ],
+    "be vegan": [
+        "Veggie burgers",
+        "Non-butter spreads",
+        "Vegan dairy",
+        "Meat substitutes"
+    ],
+    "avoid dairy": [
+        "Eggs & cheese substitutes",
+        "Meats and fish",
+        "Frozen treats",
+        "Vegan sauces & milks"
+    ],
+    "diet in an interesting way": [
+        "Whole grains",
+        "Chia seeds",
+        "Leafy greens",
+        "Avocado toast",
+        "Water"
+    ],
+    "have meat": [
+        "Steak",
+        "Burgers",
+        "Sausages",
+        "Hams",
+        "Strips",
+        "Jerky",
+        "Lunch meat",
+        "Cold cuts"
+    ],
+    "get something sweet": [
+        "Desserts",
+        "Ice cream",
+        "Candies & chocolates",
+        "Baked goods"
+    ],
+    "eat something stinky": [
+        "Durian",
+        "Stinkiest cheese",
+        "Rotten meat dishes",
+        "Fermented foods",
+        "Lobster"
+    ],
+    "eat something from a specific time of year": [
+        "Winter warmers",
+        "Summery snacks",
+        "Fall comforts",
+        "Holiday meals"
+    ],
+    "be omnivorous": [
+        "Meat",
+        "Dairy",
+        "Fruits",
+        "Vegetables",
+        "Grains",
+        "Nuts & seeds",
+        "Drinks"
+    ],
+    "be paleo": [
+        "Bacon",
+        "Nuts",
+        "Meat",
+        "Eggs",
+        "Vegetables"
+    ],
+    "eat a healthy food in an unusual way": [
+        "Breakfast for dinner food",
+        "Sandwiches",
+        "Hot cereal",
+        "Pizza",
+        "Pasta"
+    ],
+    "be a herbivore": [
+        "Fresh produce",
+        "Vegan proteins",
+        "Vegan cheeses",
+        "Nutrient rich foods"
+    ],
+    "be paleo like a caveman": [
+        "Meat, fish, and seafood",
+        "Eggs",
+        "Vegetables",
+        "Fruits",
+        "Nuts and seeds",
+        "Healthy oils"
+    ],
+    "eat something very healthy": [
+        "Fruits & veggies",
+        "Whole grain & fiber",
+        "Seafood / fish",
+        "Meat / poultry"
+    ],
+    "keep a vegetarian diet": [
+        "Varied veggies",
+        "Meatless proteins",
+        "Tasty substitutes",
+        "Eating local"
+    ],
+    "be low-fat": [
+        "Vegetables",
+        "Lean meats",
+        "Fish",
+        "Starchy vegetables",
+        "Whole grains",
+        "Protein bars"
+    ],
+    "eat something good for them": [
+        "Fresh produce",
+        "Lean meat & fish",
+        "Healthy fats",
+        "Whole grains",
+        "Adequate protein"
+    ],
+    "have no restrictions": [
+        "Anything that sounds good",
+        "Everything that's in season",
+        "All my favorite foods",
+        "A selection of different foods",
+        "Something for everyone"
+    ],
+    "have unique food quirks": [
+        "Crunchy foods",
+        "Bite-sized things",
+        "Spicy foods",
+        "Unique flavors",
+        "Foods with texture"
+    ],
+    "be a vegan": [
+        "Virtually everything made out of plants",
+        "Most fresh produce, of course",
+        "Plant-based meats & cheeses",
+        "Vegan processed foods"
+    ],
+    "be able to digest everything": [
+        "Probiotics",
+        "Fermented foods",
+        "Whole or raw foods",
+        "Fruits & vegetables",
+        "Water or liquids"
+    ],
+    "have an unusual diet": [
+        "Vegan foods",
+        "Pinterest foods",
+        "Healthy foods",
+        "High calorie foods"
+    ],
+    "make their food look like something": [
+        "Sushi",
+        "Fondue",
+        "Fruit art",
+        "Edible flower",
+        "Decorated cake"
+    ],
+    "get a burrito": [
+        "Mexican dishes",
+        "Fast Mexican food",
+        "Burrito alternatives"
+    ],
+    "eat something that smells like a fire": [
+        "Baked goods",
+        "Smoked meats",
+        "Grilled fare",
+        "Toasted seeds"
+    ],
+    "get something healthy from the street": [
+        "Vendors",
+        "Street stands",
+        "Corn carts",
+        "Food trucks",
+        "V-foods"
+    ],
+    "get the most food-like dish from the street": [
+        "Deep fried",
+        "Baked goods",
+        "Fast food",
+        "Diner fare"
+    ],
+    "order from the breakfast diner": [
+        "Traditional plate of eggs",
+        "Buttermilk pancakes",
+        "Country-style potatoes"
+    ],
+    "eat something that makes them feel guilty": [
+        "Comfort food",
+        "Hearty soups",
+        "Greasy fast food",
+        "Fried chicken",
+        "French fries",
+        "Fried donuts",
+        "Chocolate cake",
+        "Cheesecake",
+        "Macaroni and cheese",
+        "Meatloaf"
+    ],
+    "taste something exotic": [
+        "Tropical produce",
+        "Exotic meats",
+        "International pastas",
+        "Imported fruits & vegetables",
+        "Foreign herbs"
+    ],
+    "drink water with their meal": [
+        "Fresh produce",
+        "Protein",
+        "Carbohydrates",
+        "Fatty flavors",
+        "Seasonings and spices"
+    ],
+    "eat a very specific dish": [
+        "Sushi",
+        "Lasagna",
+        "Spaghetti"
+    ],
+    "diet": [
+        "Healthy snacks",
+        "Low-cal condiments",
+        "Nutritious desserts",
+        "Light-eating meals",
+        "Foods that support weight loss"
+    ],
+    "eat something healthy": [
+        "Whole grains",
+        "Lean meats",
+        "Fruits and vegetables",
+        "Healthy beverages"
+    ],
+    "lose weight": [
+        "Lean proteins",
+        "Low-calorie produce",
+        "Low-calorie dairy",
+        "Low-calorie carbs",
+        "Healthy fat"
+    ],
+    "have something tasty": [
+        "Favorite comfort foods",
+        "Something you crave",
+        "Newly discovered flavors",
+        "Treats",
+        "Sweets"
+    ],
+    "eat vegetables": [
+        "Fresh vegetables",
+        "Prepared and roasted vegetables",
+        "Grilled vegetables",
+        "Quick steamed vegetables",
+        "Mixed vegetable dishes"
+    ],
+    "find cheap food": [
+        "Frozen",
+        "Canned",
+        "Boxed",
+        "Bulk foods"
+    ],
+    "want a healthy diet": [
+        "Whole grains",
+        "Plant proteins",
+        "High fiber foods",
+        "Lots of greens"
+    ],
+    "order dessert for dinner": [
+        "Dessert cafes",
+        "Sweet breakfasts",
+        "Dessert bars",
+        "Dessert restaurants"
+    ],
+    "try something exotic ": [
+        "Asian fare",
+        "Indian curries",
+        "Middle Eastern dips & dishes",
+        "Mediterranean plates"
+    ],
+    "be a glutton ": [
+        "Gluttonous snack foods",
+        "Rich foods",
+        "High-calorie treats",
+        "High-fat fare",
+        "Meal plans for gluttons"
+    ],
+    "eat spicy meals": [
+        "Curries",
+        "Asian cuisines",
+        "Spiced chicken",
+        "Tex Mex",
+        "Hot chili"
+    ],
+    "order a burger": [
+        "Hamburger buns",
+        "Ground beef",
+        "Hamburger toppings",
+        "Burger condiments"
+    ],
+    "drink beer": [
+        "Spicy foods",
+        "Tacos",
+        "Fried foods",
+        "Other snacks"
+    ],
+    "have something spicy": [
+        "Peppers",
+        "Curries and sauces",
+        "Spicy snack foods",
+        "Asian fare",
+        "Mexican flavors"
+    ],
+    "have dessert": [
+        "Cakes",
+        "Pies",
+        "Candy",
+        "Cookies",
+        "Puddings & parfaits",
+        "Ice cream",
+        "Mousses",
+        "Popsicles"
+    ],
+    "crave sweets": [
+        "Sweet snacks",
+        "Desserts",
+        "Sugary beverages",
+        "Chewy, spongy desserts"
+    ],
+    "have vegan food": [
+        "Vegan main dishes",
+        "Vegetarian side dishes",
+        "Alternative cheeses & spreads"
+    ],
+    "desire healthy cuisine": [
+        "Protein and vegetables",
+        "Low calories",
+        "Gluten-free breads",
+        "Nutritious desserts",
+        "Vitamin-packed drinks"
+    ],
+    "get mediterranean food": [
+        "Olive oil",
+        "Mediterranean spices",
+        "Grains",
+        "Creamy sauce",
+        "Vegetables",
+        "Meat and seafood",
+        "Mediterranean dips",
+        "Cheese"
+    ],
+    "eat tart flavors": [
+        "Tart fruit",
+        "Sour candies",
+        "Salty-sour snacks",
+        "Tart sauces"
+    ],
+    "have something that smells strong": [
+        "Sweets and chocolates",
+        "Fermented cheeses",
+        "Smelly cheeses",
+        "Bitter foods",
+        "Spiced treats"
+    ],
+    "eat umami flavors": [
+        "Mushroom dishes",
+        "Parmesan dishes",
+        "Tomatoey dishes",
+        "Soy sauce dishes",
+        "Meat dishes"
+    ],
+    "eat tomato-based dishes": [
+        "Pasta or rice dishes",
+        "Soups & stews",
+        "Casseroles",
+        "Salad dressings",
+        "Salsas"
+    ],
+    "find summer dishes": [
+        "Grilling staples",
+        "Picnic-friendly bites",
+        "Salads and sides",
+        "Simple desserts",
+        "Drinks"
+    ],
+    "have food that smells like the ocean": [
+        "Seafood dishes",
+        "Seaweed snacks",
+        "Infused water",
+        "Citrusy side dishes",
+        "Creamy sauces"
+    ],
+    "eat something smoky": [
+        "Smoked meat",
+        "Bacon",
+        "Salty snacks",
+        "BBQ meats"
+    ],
+    "be vegetarian for part of the day": [
+        "Veggie-packed lunches",
+        "Nutritious breakfasts",
+        "Plant-based dinners"
+    ],
+    "avoid bread": [
+        "Rice dishes",
+        "Noodles",
+        "Starchy vegetables",
+        "Bean dishes"
+    ],
+    "eat something light": [
+        "Salads",
+        "Light soups",
+        "Simple sandwiches or wraps",
+        "Fresh fruit"
+    ],
+    "avoid carbs": [
+        "Protein bars",
+        "Bacon",
+        "Tuna",
+        "Avocados",
+        "Nuts",
+        "Meat",
+        "Full fat dairy products"
+    ],
+    "make everything from scratch": [
+        "Breads & spreads",
+        "Sauces & toppings",
+        "Cakes & pies",
+        "Cookies & candies",
+        "Quick breakfasts"
+    ],
+    "love the rainbow": [
+        "Colorful produce",
+        "Fruit smoothies",
+        "Healthy veggies",
+        "Pretty cakes",
+        "Colorful foods"
+    ],
+    "cut out all dairy": [
+        "Vegan alternatives",
+        "Nutrition replacements",
+        "Meal replacements",
+        "Soy alternatives",
+        "Non-dairy recipes"
+    ],
+    "get protein from plants": [
+        "Legumes",
+        "Nuts & seeds",
+        "Leaved greens",
+        "Tofu & tempeh"
+    ],
+    "avoid white flour": [
+        "Unfloured pizzas",
+        "Whole grain pastas",
+        "Flourless breads",
+        "Nonbready side dishes"
+    ],
+    "use only what's in season": [
+        "Seasonal vegetables",
+        "Seasonal fruits",
+        "Fresh fish",
+        "Seasonal cheeses"
+    ],
+    "order off the menu": [
+        "Appetizers",
+        "Salads",
+        "Sandwiches",
+        "Entrées",
+        "Desserts"
+    ],
+    "eat nothing processed": [
+        "Fresh fruits and vegetables",
+        "Unprocessed grains",
+        "Homemade dishes",
+        "Simple baked goods",
+        "Non-packaged snacks"
+    ],
+    "eat something that smells great": [
+        "Breads and rolls",
+        "Sourdough recipes",
+        "Chocolates & desserts",
+        "Meat dishes"
+    ],
+    "eat something stinky and fruity together": [
+        "Fruity desserts",
+        "Steamed seafood",
+        "Cheesecake",
+        "Lemon chicken",
+        "Fondue",
+        "Pizza"
+    ],
+    "have foods only in a special color, like green, red, or black": [
+        "Dark leafy greens",
+        "Beans & legumes",
+        "Brightly colored vegetables",
+        "Caramelized & roasted",
+        "Vibrant fruit juices",
+        "Red desserts"
+    ],
+    "make sure their meals aren't overly starchy": [
+        "Non-starchy vegetable side dishes",
+        "Meals without starchy carbs",
+        "Non-starchy veggie bowls",
+        "Non-starchy entrees",
+        "Meal prep meals without starchy carbs"
+    ],
+    "eat something only if it's handmade": [
+        "Authentically regional",
+        "Farmhouse staples",
+        "Artisan bakeries",
+        "Hand-made crafts"
+    ],
+    "have some very strange tastes, like dirt": [
+        "Earthing greens",
+        "Black licorice",
+        "Dirt flavored ice cream",
+        "Strange seafood",
+        "Rocks (like a ginger soda)"
+    ],
+    "eat only the best": [
+        "Fancy cheese",
+        "Deli foods like foie gras or charcuterie",
+        "Handmade artisan breads",
+        "Farm-fresh vegetables"
+    ],
+    "choose a high calorie meal": [
+        "High quality breads",
+        "Fattier meat choices",
+        "High fat cheeses",
+        "High fat spreads",
+        "High calorie desserts"
+    ],
+    "eat something that makes you thirsty": [
+        "High sodium foods",
+        "Salty crunchy snacks",
+        "Salty cheeses"
+    ],
+    "eat lots of diced vegetables": [
+        "Diced salads",
+        "Mixed dips",
+        "Vegetable main dishes",
+        "Diced sauces"
+    ],
+    "have spicy food": [
+        "Spicy rice dishes",
+        "Tacos and burritos",
+        "Indian fare",
+        "Caribbean specialties",
+        "Asian soups and noodles",
+        "Szechuan specialties",
+        "Cajun specialties"
+    ],
+    "eat a food with high protein": [
+        "Meat",
+        "Poultry",
+        "Seafood",
+        "Legumes & tofu"
+    ],
+    "eat a fish-based meal": [
+        "Sushi",
+        "Fried fish",
+        "Fishcakes",
+        "Baked fish"
+    ],
+    "have seafood": [
+        "Lobster",
+        "Shrimp",
+        "Scallops",
+        "Whole fish"
+    ],
+    "eat a hearty meal with lots of calories": [
+        "Hearty casseroles",
+        "Breaded or fried meats",
+        "Creamy sauces",
+        "Rich side dishes",
+        "Butter-laden baked treats"
+    ],
+    "get high-sodium food": [
+        "Processed foods",
+        "Fast foods",
+        "Can goods",
+        "Frozen foods",
+        "Some pasta",
+        "Some Asian cuisine",
+        "Some Italian cuisine"
+    ],
+    "have a high-carb meal": [
+        "Spaghetti",
+        "Fried rice",
+        "French dip sandwiches",
+        "Chili cheese fries"
+    ],
+    "eat red meat": [
+        "Steaks",
+        "Ribs, chops & roasts",
+        "Spiced ground beef",
+        "Cheese & vegetable-topped burgers"
+    ],
+    "eat a dessert with lots of chocolate": [
+        "Indulgent cakes",
+        "Sweet and fudgy",
+        "Chocolate ice cream",
+        "Mocha drinks"
+    ],
+    "eat a lot of fried food": [
+        "French fries",
+        "Fried chicken",
+        "Seafood fried dishes",
+        "Deep-fried snacks",
+        "Fried noodles"
+    ],
+    "eat something with onion": [
+        "Soups & stews",
+        "Burgers & sandwiches",
+        "Asian classics",
+        "Italian favorites",
+        "Mexican classics",
+        "Steakhouses"
+    ],
+    "eat healthy food": [
+        "Lean protein",
+        "Fresh produce",
+        "Whole grains",
+        "Healthy fats"
+    ],
+    "eat something with lots of garlic": [
+        "Pasta dishes",
+        "Garlic bread",
+        "Garlic rice",
+        "Garlic steaks",
+        "Garlic stir fry"
+    ],
+    "eat lots of pork": [
+        "Cured meats",
+        "Chopped & shredded",
+        "Meaty cuts",
+        "Crispy skin"
+    ],
+    "have a vegetarian dish": [
+        "Simple vegetable dishes",
+        "Veggie sides",
+        "Portable vegetarian",
+        "Make-ahead vegetarian",
+        "Delicious vegetarian meals",
+        "Vegetarian meals & dishes"
+    ],
+    "get soup": [
+        "Canned chowders",
+        "Broth soups",
+        "Tomato soups",
+        "Minestrone vegetable"
+    ],
+    "stick to a keto diet": [
+        "Fatty cuts of meat",
+        "Avocados",
+        "Keto friendly veggies",
+        "Nut and cheese based snacks",
+        "Butter, egg whites, & cream"
+    ],
+    "eat something raw": [
+        "Raw produce",
+        "Raw fish and seafood",
+        "Raw meats and poultry",
+        "Processed raw foods"
+    ],
+    "avoid high-sodium foods": [
+        "Vegetables in place of salt",
+        "Unsalted snacks",
+        "Herbs and spices",
+        "High-quality fats and oils"
+    ],
+    "eat something that makes you feel thirsty": [
+        "Dry roasted food",
+        "Hard cheeses",
+        "Salty snacks",
+        "Spicey soups"
+    ],
+    "have a heavy meal": [
+        "High-protein main dishes",
+        "Dense, calorie-packed sides",
+        "Rich desserts"
+    ],
+    "eat ve": [
+        "Grains",
+        "Seeds",
+        "Legumes",
+        "Vegetables",
+        "Fruits",
+        "Vegetable proteins",
+        "Dairy"
+    ],
+    "cook with unusual ingredients": [
+        "Exotic cuisine",
+        "Fermented foods",
+        "Specialty ingredients"
+    ],
+    "experiment with tastes": [
+        "Experimental pasta dishes",
+        "Novel desserts",
+        "Few-ingredient dishes",
+        "Simple-to-build sandwiches",
+        "Sauce-heavy dishes"
+    ],
+    "try a new dish": [
+        "New & exciting cuisine",
+        "New ingredients & flavors",
+        "New cooking techniques",
+        "Bold or daring recipes",
+        "Ethnic or international flavors"
+    ],
+    "try something with a twist": [
+        "Sweet & salty snacks",
+        "Pizza with unique toppings",
+        "Sides with a flavor edge",
+        "Food with a different form",
+        "Unique flavored drinks",
+        "Food with a fun name"
+    ],
+    "get a lot of variety": [
+        "Seasonal ingredients",
+        "Lots of produce",
+        "Varied proteins",
+        "Different meals and snacks"
+    ],
+    "try chilled foods": [
+        "Chilled soups",
+        "Appetizers",
+        "Dips & spreads",
+        "Pies & tarts",
+        "Desserts"
+    ],
+    "use a smoker": [
+        "Barbecued meats",
+        "Grilled pizzas",
+        "Smoked burgers",
+        "Smoked chili peppers",
+        "Smoked seafood"
+    ],
+    "make caramel": [
+        "Soft sweets",
+        "Salty foods",
+        "Creamy desserts"
+    ],
+    "eat something that smells like ginger": [
+        "Root vegetables",
+        "Certain breads",
+        "Spicy foods",
+        "Certain garnishes",
+        "Some tea & coffee"
+    ],
+    "have fruit-based snacks": [
+        "Chunky fresh fruits",
+        "Cooked fruits",
+        "Dried fruits",
+        "Fruit-based snacks"
+    ],
+    "put everything on a salad": [
+        "Bold greens",
+        "Creamy vegetables",
+        "Cooked proteins like bacon",
+        "Favorite toppings"
+    ],
+    "put everything on a taco": [
+        "Taco shells (hard or soft)",
+        "Taco cheese, filling, or toppings",
+        "Taco tortilla chips to dip",
+        "Taco bowls, salsa, or beans",
+        "Corn or black bean or rice tacos"
+    ],
+    "put everything on a sandwich": [
+        "Breads ",
+        "Spreads",
+        "Meats",
+        "Cheeses",
+        "Vegetables",
+        "Seasonings",
+        "Add-ons"
+    ],
+    "eat a whole lot of veggies": [
+        "Crudités, chopped and fresh",
+        "Salads, mostly lettuces",
+        "Starchy veggies",
+        "Raw, lightly dressed veggies"
+    ],
+    "eat a whole lot of fruit": [
+        "Fruity salads",
+        "Easy fruit smoothies",
+        "Juicy fruit snacks",
+        "Decorated desserts "
+    ],
+    "enjoy fresh herbs": [
+        "Soups",
+        "Sauces and dips",
+        "Salad dressings",
+        "Grilled fare",
+        "Spicy fare"
+    ],
+    "eat a lot of legumes": [
+        "Chickpeas",
+        "Black beans",
+        "Lentil soups",
+        "Kidney beans",
+        "Bean salads",
+        "Hummus "
+    ],
+    "eat beans": [
+        "Beans and rice",
+        "Black beans and corn",
+        "Lentils and pasta"
+    ],
+    "enjoy the ocean": [
+        "Seafood",
+        "Nautical treats",
+        "Cool beverages",
+        "Casual fare"
+    ],
+    "eat something in season": [
+        "Fall harvests",
+        "Winter produce",
+        "Spring greens",
+        "Summer fruits"
+    ],
+    "eat vegan tacos": [
+        "Veggie tacos",
+        "Jackfruit carnitas",
+        "Tacos de fruta",
+        "Loaded nachos",
+        "Mushroom quesadillas"
+    ],
+    "eat a ton of vegetables": [
+        "Raw, crunchy snacks",
+        "Quick salad meals",
+        "Easy, veggie stir fries",
+        "Savory baked veggies",
+        "Grilled, veggie topped sandwiches",
+        "Veggie-packed soups"
+    ],
+    "eat a ton of fruit": [
+        "Fresh produce",
+        "Frozen treats",
+        "Simple snacks",
+        "Salads and sandwiches"
+    ],
+    "eat healthy": [
+        "Fresh fruit",
+        "Fresh produce",
+        "Healthy fats",
+        "Whole grains",
+        "Raw nuts"
+    ],
+    "eat lots of meat": [
+        "Various BBQ items",
+        "Grilled food",
+        "Steakhouses",
+        "Burgers",
+        "Stews"
+    ],
+    "eat lots of dessert": [
+        "Decadent cakes",
+        "Creamy puddings",
+        "Refreshing sorbets",
+        "Rich ice creams",
+        "Gooey cookies"
+    ],
+    "try a ton of spices": [
+        "Indian dishes",
+        "Thai dishes",
+        "Mexican dishes",
+        "Mediterranean-inspired spreads"
+    ],
+    "try cajun flavors": [
+        "Cajun and Creole flavors",
+        "Blackened seasoning",
+        "Hot and spicy meals",
+        "Cajun sides"
+    ],
+    "eat desserts": [
+        "Cakes",
+        "Pies",
+        "Cookies",
+        "Candy"
+    ],
+    "order dessert": [
+        "Classic cakes",
+        "Decadent pastries",
+        "Homemade cookies",
+        "Rich chocolate"
+    ],
+    "have something to share": [
+        "Party snacks",
+        "Easy appetizers",
+        "Dip platters",
+        "Cookout foods",
+        "Giant pizzas"
+    ],
+    "eat with chopsticks": [
+        "Asian noodles",
+        "Sushi and sashimi",
+        "Rice dishes",
+        "Grain dishes"
+    ],
+    "request a salad before a meal": [
+        "Greens",
+        "Fruit",
+        "Vegetables",
+        "Protein",
+        "Dressings",
+        "Toppings"
+    ],
+    "have a soup course": [
+        "Classic crepes",
+        "Fruit and nut tart",
+        "Egg-based casserole"
+    ],
+    "eat with a spoon": [
+        "Soup",
+        "Cereal",
+        "Yogurt",
+        "Misc."
+    ],
+    "eat something that looks like a fire": [
+        "Roasted chicken",
+        "Grilled skewers",
+        "Broiled cheese",
+        "Fire-roasted veggies"
+    ],
+    "share something floral": [
+        "Floral sweets",
+        "Floral cocktails",
+        "Simple bouquets"
+    ],
+    "eat vegan": [
+        "Plant-based burgers or meat",
+        "Vegetable dishes",
+        "Plant-based milk & yogurt",
+        "Vegan candy or dessert"
+    ],
+    "have a cheese course": [
+        "Fine cheese pairings",
+        "Aged goat’s milk",
+        "Smoked fish",
+        "Pomegranate seeds"
+    ],
+    "eat something tart": [
+        "Fruits",
+        "Preserves",
+        "Vinegary condiments",
+        "Sour candy"
+    ],
+    "eat with your hands": [
+        "Spicy fare",
+        "Salads",
+        "Sandwiches & wraps",
+        "Soupy fare",
+        "Salty snacks"
+    ],
+    "be gluten-free": [
+        "Rice alternatives",
+        "Whole grains",
+        "Vegetables and fruits",
+        "Beans and lentils",
+        "Gluten-free bread"
+    ],
+    "eat indian food": [
+        "Rice and/or naan",
+        "Meat or vegetarian curries",
+        "Tandoorfi ",
+        "Sweet desserts"
+    ],
+    "have something toasted": [
+        "Bread",
+        "Crumpets",
+        "English muffins",
+        "Sandwiches",
+        "Bread bowls",
+        "Tortillas",
+        "Pita bread",
+        "Bagels"
+    ],
+    "keep kosher to a point": [
+        "Kosher meats",
+        "Chicken & other poultry",
+        "Dairy",
+        "Processed foods",
+        "Fresh produce"
+    ],
+    "be a minimalist": [
+        "Simplified ingredients",
+        "Basic meal-prep",
+        "Limited gadgets",
+        "Storage-efficient dishes"
+    ],
+    "be an omnivore": [
+        "Meat",
+        "Eggs",
+        "Fruits and vegetables",
+        "Grains",
+        "Dairy"
+    ],
+    "keep away from shellfish": [
+        "Pasta",
+        "Meat",
+        "Vegetables",
+        "Veggie patties and nuggets"
+    ],
+    "eat food with a certain shape": [
+        "Finger food",
+        "Fast food",
+        "Dessert cups"
+    ],
+    "eat food with a high amount of a vitamin(s)": [
+        "Supplements",
+        "Fortified foods"
+    ],
+    "have a strong meat preference": [
+        "Good steak cuts",
+        "Rich ribs",
+        "Meat pies",
+        "Meatballs & meat skewers"
+    ],
+    "avoid all white sugar": [
+        "Artificial sweeteners",
+        "Low- or no-sugar alternatives",
+        "Fruit desserts",
+        "Dairy sweets",
+        "Whole foods"
+    ],
+    "avoid wheat": [
+        "Riced alternatives",
+        "Bread substitutes",
+        "Wheat-free breads",
+        "Wheat-free pasta"
+    ],
+    "avoid a sweetener": [
+        "Natural sweeteners",
+        "Savory foods for balance",
+        "Dairy and protein sources",
+        "Unsweetened beverages"
+    ],
+    "avoid meat": [
+        "Plant-rich foods",
+        "Fruit-based dishes",
+        "Vegan treats",
+        "Salads"
+    ],
+    "stick to vegetarian alternatives": [
+        "Tofu",
+        "Plant-based meats",
+        "Chickpea & bean-based fare",
+        "Eggs",
+        "Dairy products"
+    ],
+    "avoid processed foods in general": [
+        "Fresh fruit and vegetables ",
+        "Whole grains",
+        "Unprocessed meats and legumes",
+        "Unprocessed dairy products"
+    ],
+    "avoid a certain kind of meat": [
+        "Vegetarian food",
+        "Vegan cuisine",
+        "Fish and shellfish",
+        "Allergy-free meal options"
+    ],
+    "eat hot food": [
+        "Spicy fare",
+        "Hearty stews",
+        "Soups",
+        "Comfort food",
+        "Hot & spicy drinks"
+    ],
+    "get fried food": [
+        "Chili-topped fries",
+        "Fish and chips",
+        "Hot & spicy wings",
+        "Donuts"
+    ],
+    "order something greasy": [
+        "Fast burgers",
+        "Chipotle",
+        "Fried chicken",
+        "Chunky fries",
+        "Hearty delis"
+    ],
+    "get some raw food": [
+        "Raw veggies with dip",
+        "Raw sushi ingredients, such as avocado, seaweed, cukes",
+        "Raw salads",
+        "Raw nuts and seeds",
+        "Raw cheese and crackers"
+    ],
+    "go for a soup": [
+        "Chicken broth",
+        "Tomato soup",
+        "Broccoli Cheddar",
+        "Canned soup",
+        "Frozen soup"
+    ],
+    "eat something salty": [
+        "Salty snacks",
+        "Salty popcorn",
+        "Salt-laced vegs",
+        "Savory sides"
+    ],
+    "have a snack": [
+        "Chips",
+        "Yogurts",
+        "Cheese platters",
+        "Snack mixes",
+        "Dessert bites"
+    ],
+    "eat sweet food": [
+        "Desserts",
+        "Fruits and sweet veggies",
+        "Sweet breads & treats",
+        "Sweet breakfasts",
+        "Sweet snacks",
+        "Sugary drinks"
+    ],
+    "have a sandwich": [
+        "Baguettes",
+        "Bread",
+        "Bread sticks",
+        "Pita bread",
+        "Flat bread",
+        "Tortillas",
+        "Rolls",
+        "Bun",
+        "Burger bun"
+    ],
+    "eat something sticky": [
+        "Fruit (and nuts)",
+        "Breads",
+        "Meat",
+        "Candy"
+    ],
+    "go with a salad": [
+        "Salad starters (like chicken/beef/pork)",
+        "Salad add-ons (like cheese/fruit/nuts/etc.)",
+        "Dressings"
+    ],
+    "eat a wrap": [
+        "Lettuce wraps",
+        "Soft flour tortillas",
+        "Squishy rice paper wrappers",
+        "Crisp spring roll wraps"
+    ],
+    "get fast food": [
+        "Hamburgers and fries",
+        "Sandwiches",
+        "Chicken",
+        "Beverages and sides",
+        "Desserts"
+    ],
+    "have a bowl of rice": [
+        "Asian rice",
+        "Mexican rice",
+        "Rice dishes",
+        "Rice & beans",
+        "Rice bowls"
+    ],
+    "eat something starchy": [
+        "Bread & rolls",
+        "Pasta & noodles",
+        "Rice & grains",
+        "Potatoes & sweet potatoes"
+    ],
+    "eat something crunchy": [
+        "Chips and crackers",
+        "Breaded foods",
+        "Chewy candies",
+        "Popcorn and crackers"
+    ],
+    "try a burger": [
+        "Steakhouse classic",
+        "Juicy fast-food burgers",
+        "High-brow gourmet patties",
+        "Fun variations",
+        "Veggie patties"
+    ],
+    "try new cuisine": [
+        "Foods from your favorite countries",
+        "Foods served at your favorite spots",
+        "Family recipes",
+        "Foods that you've never tried"
+    ],
+    "avoid red meat": [
+        "Poultry",
+        "Fish",
+        "Dairy",
+        "Vegan options "
+    ],
+    "have an ice cream party": [
+        "Ice cream",
+        "Other frozen treats",
+        "Frozen waffle cones",
+        "Drinks and fruit"
+    ],
+    "order the local speciality": [
+        "Local meats",
+        "Native fish",
+        "Fresh local veg",
+        "Local sweets & fruits"
+    ],
+    "eat the healthiest thing on the menu": [
+        "Raw",
+        "Fresh",
+        "High protein",
+        "Low fat",
+        "High fiber"
+    ],
+    "find dishes that go well with chocolate ": [
+        "Fruit",
+        "Dairy",
+        "Breads",
+        "Cakes"
+    ],
+    "get a salad with everything on it ": [
+        "Cheesy salads",
+        "Asian salads",
+        "Fruit salads",
+        "Eaten out salads"
+    ],
+    "order the most common foods": [
+        "Chicken wings",
+        "Pasta",
+        "Hamburger, cheeseburger, or similar 100% cooked ground meat",
+        "Pizza",
+        "Fried chicken",
+        "Grilled chicken"
+    ],
+    "get a meal that goes well with cinnamon": [
+        "Classic foods ",
+        "Savory foods ",
+        "Spiced sweets",
+        "Breakfast foods",
+        "Seasonal recipes"
+    ],
+    "order the largest meal": [
+        "Big entrees",
+        "Loaded sides",
+        "Hearty soups",
+        "Baked goods",
+        "Sweets"
+    ],
+    "get the most expensive meal": [
+        "Deluxe proteins",
+        "Rare fruits & veg",
+        "Artisanal cheeses",
+        "Pricey baked goods",
+        "Gourmet treats"
+    ],
+    "eat something with fish in it": [
+        "Fried fish",
+        "Salmon dishes",
+        "Fish pastas",
+        "Sushi rolls",
+        "Fish 'n chips",
+        "Fish tacos"
+    ],
+    "find a dish that goes well with sriracha": [
+        "Fried foods",
+        "Creamy dishes",
+        "Salty starchy dishes"
+    ],
+    "get a dish with the largest number of colors": [
+        "Fresh produce",
+        "Cooked dishes",
+        "Baked goods",
+        "Mixed sides",
+        "Desserts"
+    ],
+    "eat something that smells like cinnamon": [
+        "Cinnamon rolls or buns",
+        "Coffee drinks or cocoas",
+        "Cinnamon toast",
+        "Spice cakes",
+        "Candied apples",
+        "French toast",
+        "Cookies",
+        "Chai tea",
+        "Indian curries"
+    ],
+    "eat something that smells like bacon": [
+        "Bacon bites",
+        "Bacon flavored snacks",
+        "Bacon seasoned chips",
+        "Bacon burger",
+        "Bacon fried potatoes"
+    ],
+    "eat something with a lot of salt ": [
+        "Salty snacks",
+        "Tapas",
+        "Savory soups",
+        "Salty sweets",
+        "Diner classics"
+    ],
+    "eat something with a lot of sugar": [
+        "Sugary cereal",
+        "Bakery treats",
+        "Candied fruit",
+        "Sodas & milkshakes"
+    ],
+    "have kosher food": [
+        "Kosher meat",
+        "Kosher milk",
+        "Fresh fruits & veggies",
+        "Certified processed foods"
+    ],
+    "try to lose weight through food restriction": [
+        "Low-calorie foods",
+        "Low-fat foods",
+        "Low-carb or carb-free foods"
+    ],
+    "try to diet": [
+        "Calorie conscious foods",
+        "Protein foods",
+        "Low carbohydrate foods",
+        "Fiber rich foods",
+        "Smaller quantities"
+    ]
+}
