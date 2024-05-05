@@ -274,7 +274,7 @@ def score_baseline_and_ours(dataloader, descriptors,
         imgs = torch.squeeze(images, dim=0) # remove first dimension
 
         cats = [preference_concept] # preference concept categories/classes
-        scores = score_images_on_categories(imgs, cats)
+        scores = score_images_on_categories(imgs, cats, model, device)
 
         baseline_scores_all += scores.tolist() # convert from np arrays
 
