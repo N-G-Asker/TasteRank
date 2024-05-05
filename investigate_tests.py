@@ -44,7 +44,7 @@ def score_baseline_and_ours(dataloader, descriptors,
         indices_list
         )
 
-def score_attributes(im, attributes: list[str]):
+def score_attributes(im, attributes: list[str], model, device):
     # image = preprocess(im).unsqueeze(0).to(device)
     image = im.unsqueeze(0).to(device) # don't need to preprocess -- dataset was
                                     # underwent preprocessing transofrmation
@@ -63,13 +63,14 @@ def score_attributes(im, attributes: list[str]):
 
     return out_scores
 
-def evaluate(im, positive_attributes):
-    scores = score_attributes(im, positive_attributes)
+def evaluate(im, positive_attributes, model, device):
+    scores = score_attributes(im, positive_attributes, model, device)
     avg_score_pos = np.average(scores)
     print("Average Score", avg_score_pos)
     # return scores
 
-def experiment_driver(preferences: list[str],
+def experiment_driver(testloader_with_idxs,
+                      preferences: list[str],
                       descriptors_list: list[list[str]],
                       relevant_classes_list: list[list[str]]):
     """
@@ -88,7 +89,7 @@ def experiment_driver(preferences: list[str],
 
         whitelist = get_whitelist(relevant_classes)
 
-        score_output = score_baseline_and_ours(testloader, descriptors, whitelist, preference)
+        score_output = score_baseline_and_ours(testloader_with_idxs, descriptors, whitelist, preference)
         relevance_bools_all, avg_scores_all, baseline_scores_all, indices = score_output
 
         our_corr = compute_pearson_corr_coeff(relevance_bools_all, avg_scores_all)

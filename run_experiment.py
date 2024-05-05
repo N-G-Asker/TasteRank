@@ -5,12 +5,14 @@ I created a library of functions to facilitate experimentation. The main functio
 """
 import numpy as np
 import torch
-import numpy as np
 from scipy import stats
-import numpy as np
 import clip
+import time
+import json
+from google.colab import files
+from tqdm import tqdm
 
-def classify(im, labels):
+def classify(im, labels, model, device):
     # image = preprocess(im).unsqueeze(0).to(device)
     image = im.unsqueeze(0).to(device) # don't need to preprocess -- dataset was
                                        # underwent preprocessing transofrmation
@@ -27,7 +29,7 @@ def classify(im, labels):
     for i, label in enumerate(labels):
         print(f"{labels[i]} = {probs[0,i]*100}%")
 
-def score_attributes(im, attributes: list[str]):
+def score_attributes(im, attributes: list[str], model, device):
     # image = preprocess(im).unsqueeze(0).to(device)
     image = im.unsqueeze(0).to(device) # don't need to preprocess -- dataset was
                                     # underwent preprocessing transofrmation
@@ -46,12 +48,12 @@ def score_attributes(im, attributes: list[str]):
 
     return out_scores
 
-def evaluate(im, positive_attributes):
-    scores = score_attributes(im, positive_attributes)
+def evaluate(im, positive_attributes, model, device):
+    scores = score_attributes(im, positive_attributes, model, device)
     avg_score_pos = np.average(scores)
     print(avg_score_pos)
 
-def score_images_on_categories(imgs, categories: list[str]):
+def score_images_on_categories(imgs, categories: list[str], model, device):
     # image = preprocess(im).unsqueeze(0).to(device)
     images = imgs.to(device) # don't need to preprocess -- dataset was
                                     # underwent preprocessing transofrmation
@@ -67,7 +69,7 @@ def score_images_on_categories(imgs, categories: list[str]):
 
     return out_scores
 
-def score_images_on_attributes(images, attributes: list[str]):
+def score_images_on_attributes(images, attributes: list[str], model, device):
     # image = preprocess(im).unsqueeze(0).to(device)
     images = images.to(device)  # don't need to preprocess -- dataset was
                                 # underwent preprocessing transofrmation
@@ -93,8 +95,8 @@ def score_images_on_attributes(images, attributes: list[str]):
 
     return out_scores
 
-def evaluate_images(images, positive_attributes):
-    scores = score_images_on_attributes(images, positive_attributes)
+def evaluate_images(images, positive_attributes, model, device):
+    scores = score_images_on_attributes(images, positive_attributes, model, device)
     avg_scores = np.average(scores, axis=1)
     # print(f"{avg_scores.shape=}") # avg_scores.shape = (100,)
     return avg_scores
@@ -251,7 +253,7 @@ def get_whitelist(matching_classes):
 ############ Functions for Scoring Baseline Performance vs. Ours ###############
 ################################################################################
 def score_baseline_and_ours(dataloader, descriptors,
-                            whitelist, preference_concept):
+                            whitelist, preference_concept, model, device):
     """Simultaneously score baseline and our approach"""
     relevance_bools_all = []
     labels_all = []
@@ -261,7 +263,7 @@ def score_baseline_and_ours(dataloader, descriptors,
     for data in dataloader:
         # 1. Score our method on this batch
         images, labels = data
-        avg_scores = evaluate_images(images, descriptors)
+        avg_scores = evaluate_images(images, descriptors, model, device)
 
         avg_scores_all += avg_scores.tolist() # convert from np arrays
         labels_all += labels.cpu().numpy().tolist()
@@ -291,12 +293,6 @@ def compute_pearson_corr_coeff(x, y):
         "PearsonRResult.statistic": stat,
         "PearsonRResult.pvalue": pvalue
     }
-
-import numpy as np
-from scipy import stats
-import time
-import json
-from google.colab import files
 
 def save_results(idx, results, our_corrs, baseline_corrs,
                  intermediate=True, colab_download=False):
@@ -383,9 +379,11 @@ def save_results(idx, results, our_corrs, baseline_corrs,
         return None
 
 
-def experiment_driver(preferences: list[str],
+def experiment_driver(testloader,
+                      preferences: list[str],
                       descriptors_list: list[list[str]],
-                      relevant_classes_list: list[list[str]]):
+                      relevant_classes_list: list[list[str]],
+                      model, device):
     results = []
     our_corrs = []
     baseline_corrs = []
@@ -398,7 +396,7 @@ def experiment_driver(preferences: list[str],
 
         whitelist = get_whitelist(relevant_classes)
 
-        score_output = score_baseline_and_ours(testloader, descriptors, whitelist, preference)
+        score_output = score_baseline_and_ours(testloader, descriptors, whitelist, preference, model, device)
         relevance_bools_all, avg_scores_all, baseline_scores_all = score_output
 
         our_corr = compute_pearson_corr_coeff(relevance_bools_all, avg_scores_all)
