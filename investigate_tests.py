@@ -8,7 +8,7 @@ TODO: change this to have more flexible top-k reporting info, rather than hardco
 from run_experiment import *
 
 def score_baseline_and_ours(dataloader, descriptors,
-                            whitelist, preference_concept):
+                            whitelist, preference_concept, model, device):
     """Simultaneously score baseline and our approach"""
     relevance_bools_all = []
     labels_all = []
@@ -19,7 +19,7 @@ def score_baseline_and_ours(dataloader, descriptors,
     for data in dataloader:
         # 1. Score our method on this batch
         images, labels, indices = data
-        avg_scores = evaluate_images(images, descriptors)
+        avg_scores = evaluate_images(images, descriptors, model, device)
 
 
         avg_scores_all += avg_scores.tolist() # convert from np arrays
@@ -31,7 +31,7 @@ def score_baseline_and_ours(dataloader, descriptors,
         imgs = torch.squeeze(images, dim=0) # remove first dimension
 
         cats = [preference_concept] # preference concept categories/classes
-        scores = score_images_on_categories(imgs, cats)
+        scores = score_images_on_categories(imgs, cats, model, device)
 
         baseline_scores_all += scores.tolist() # convert from np arrays
 
@@ -72,7 +72,8 @@ def evaluate(im, positive_attributes, model, device):
 def experiment_driver(testloader_with_idxs,
                       preferences: list[str],
                       descriptors_list: list[list[str]],
-                      relevant_classes_list: list[list[str]]):
+                      relevant_classes_list: list[list[str]],
+                      model, device):
     """
     Altered to return top 4 highest-scoring images, together with their scores
     """
@@ -89,7 +90,7 @@ def experiment_driver(testloader_with_idxs,
 
         whitelist = get_whitelist(relevant_classes)
 
-        score_output = score_baseline_and_ours(testloader_with_idxs, descriptors, whitelist, preference)
+        score_output = score_baseline_and_ours(testloader_with_idxs, descriptors, whitelist, preference, model, device)
         relevance_bools_all, avg_scores_all, baseline_scores_all, indices = score_output
 
         our_corr = compute_pearson_corr_coeff(relevance_bools_all, avg_scores_all)
