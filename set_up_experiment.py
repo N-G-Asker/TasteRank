@@ -376,6 +376,8 @@ class LLM():
 
         extracted = []
         for i in range(num_iters):
+            if (i + 1) >= 5 and (i + 1) % 5 == 0:
+                print(f'{(i+1)/num_iters * 100}% completed')  
 
             encodeds = self.tokenizer([text], return_tensors="pt")
             model_inputs = encodeds.to(self.device)
