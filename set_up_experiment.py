@@ -164,47 +164,6 @@ def get_whitelist(response):
 #===============================================================================
 
 
-################################################################################
-############ Functions for Scoring Baseline Performance vs. Ours ###############
-################################################################################
-def score_baseline_and_ours(dataloader, descriptors,
-                            whitelist, preference_concept):
-    """Simultaneously score baseline and our approach"""
-    relevance_bools_all = []
-    labels_all = []
-    avg_scores_all = []
-    baseline_scores_all = []
-
-    for data in tqdm(dataloader):
-        # 1. Score our method on this batch
-        images, labels = data
-        avg_scores = evaluate_images(images, descriptors)
-
-        avg_scores_all += avg_scores.tolist() # convert from np arrays
-        labels_all += labels.cpu().numpy().tolist()
-        relevance_bools_all += whitelist[labels].tolist()
-
-
-        # 2 Score baseline on this batch
-        imgs = torch.squeeze(images, dim=0) # remove first dimension
-
-        cats = [preference_concept] # preference concept categories/classes
-        scores = score_images_on_categories(imgs, cats)
-
-        baseline_scores_all += scores.tolist() # convert from np arrays
-
-    return (
-        relevance_bools_all,    # new relevance labels we created
-        avg_scores_all,         # our scores
-        baseline_scores_all     # baseline CLIP
-        )
-
-def compute_pearson_corr_coeff(x, y):
-    # https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pointbiserialr.html
-    pearson_corr_baseline = stats.pearsonr(x, y)
-    return pearson_corr_baseline
-
-
 def gen_preferences_prompt():
     """
     """
@@ -599,7 +558,6 @@ def filter_preferences(preferences: list[str], matching_classes: dict[str,list[s
     with open(outfile, 'w', encoding='utf-8') as f:
         json.dump(preferences, f, ensure_ascii=False, indent=4)
 
-    from google.colab import files
     if colab_download:
         files.download(outfile)
 
