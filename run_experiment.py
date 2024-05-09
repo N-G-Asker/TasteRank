@@ -95,10 +95,21 @@ def score_images_on_attributes(images, attributes: list[str], model, device):
 
     return out_scores
 
-def evaluate_images(images, positive_attributes, model, device):
-    scores = score_images_on_attributes(images, positive_attributes, model, device)
-    avg_scores = np.average(scores, axis=1)
+def evaluate_images(image_embeddings, text_inputs, model, device):
+    """
+    """
+    tokenized_inputs = clip.tokenize(text_inputs).to(device)
+    with torch.no_grad():
+        # a matrix of shape t x d, containing t descriptor embeddings
+        text_embeddings = model.encode_text(tokenized_inputs).to(torch.float)
+
+
+    # an m x d matrix assigning each image a score per descriptor
+    similarity = torch.matmul(image_embeddings, text_embeddings.T).cpu().numpy()
+    
+    avg_scores = np.average(similarity, axis=1)
     # print(f"{avg_scores.shape=}") # avg_scores.shape = (100,)
+    
     return avg_scores
 
 
@@ -252,31 +263,24 @@ def get_whitelist(matching_classes):
 ################################################################################
 ############ Functions for Scoring Baseline Performance vs. Ours ###############
 ################################################################################
-def score_baseline_and_ours(dataloader, descriptors,
+def score_baseline_and_ours(image_embeddings, labels_all, descriptors,
                             whitelist, preference_concept, model, device):
     """Simultaneously score baseline and our approach"""
-    relevance_bools_all = []
-    labels_all = []
-    avg_scores_all = []
     baseline_scores_all = []
 
-    for data in dataloader:
-        # 1. Score our method on this batch
-        images, labels = data
-        avg_scores = evaluate_images(images, descriptors, model, device)
+    # 1. Score our method
+    avg_scores = evaluate_images(image_embeddings, descriptors, model, device)
 
-        avg_scores_all += avg_scores.tolist() # convert from np arrays
-        labels_all += labels.cpu().numpy().tolist()
-        relevance_bools_all += whitelist[labels].tolist()
+    avg_scores_all = avg_scores.tolist() # convert from np arrays
+    # labels_all += labels.cpu().numpy().tolist()
+    relevance_bools_all = whitelist[labels_all].tolist()
 
 
-        # 2 Score baseline on this batch
-        imgs = torch.squeeze(images, dim=0) # remove first dimension
+    # 2 Score baseline
+    cats = [preference_concept] # preference concept categories/classes
+    scores = evaluate_images(image_embeddings, cats, model, device)
 
-        cats = [preference_concept] # preference concept categories/classes
-        scores = score_images_on_categories(imgs, cats, model, device)
-
-        baseline_scores_all += scores.tolist() # convert from np arrays
+    baseline_scores_all = scores.tolist() # convert from np arrays
 
     return (
         relevance_bools_all,    # new relevance labels we created
@@ -308,7 +312,7 @@ def save_results(idx, results, our_corrs, baseline_corrs,
             # Final results
             outfile = f'ALL_{idx}_results_{timestamp}.json'
 
-        print(f"Saving results to JSON file {outfile}...")
+        print(f"\nSaving results to JSON file {outfile}...")
 
         our_corrs_summary = stats.describe(our_corrs)
         baseline_corrs_summary = stats.describe(baseline_corrs)
@@ -378,16 +382,57 @@ def save_results(idx, results, our_corrs, baseline_corrs,
         print("Failed to save results to JSON file.")
         return None
 
+def get_all_image_embeddings(dataloader, test_size, model, device):
+    """
+    Following the docs at https://github.com/openai/CLIP explaining the API :
+    > model.encode_image(image: Tensor)
+    > Given a batch of images, returns the image features encoded by the vision 
+    > portion of the CLIP model.
+    """
+    labels_all = []
+
+    n = test_size # number of image samples in the dataset
+    d = 512 # length of the image embedding vector output by CLIP
+    X = torch.zeros(size=(n, d), dtype=torch.float).to(device) # placeholder matrix to store all embeddings
+
+    print("Getting image embeddings for all samples in testset:")
+    
+    i = 0
+    for data in tqdm(dataloader):
+        images, labels = data
+        num_images = images.shape[0]
+        index = torch.arange(i, i+num_images).to(device)
+
+        with torch.no_grad():
+            encoded_images = model.encode_image(images.to(device=device)).to(dtype=torch.float)
+
+        X.index_copy_(0, index, encoded_images)
+
+        i += num_images
+
+        labels_all += labels.cpu().numpy().tolist()
+
+    return (X, # a tensor of shape n x d
+           labels_all)
+
 
 def experiment_driver(testloader,
+                      test_size, 
                       preferences: list[str],
                       descriptors_list: list[list[str]],
                       relevant_classes_list: list[list[str]],
                       model, device):
+    """
+    """
+    X, labels_all = get_all_image_embeddings(testloader, test_size, model, device) # a tensor of shape n x d
+
     results = []
     our_corrs = []
     baseline_corrs = []
     N = len(preferences)
+
+    print("\nComputing similarity scores between image embeddings and descriptor embeddings for every test:")
+    
     for i in tqdm(range(N)):
 
         preference = preferences[i]
@@ -396,9 +441,9 @@ def experiment_driver(testloader,
 
         whitelist = get_whitelist(relevant_classes)
 
-        score_output = score_baseline_and_ours(testloader, descriptors, whitelist, preference, model, device)
+        score_output = score_baseline_and_ours(X, labels_all, descriptors, whitelist, preference, model, device)
         relevance_bools_all, avg_scores_all, baseline_scores_all = score_output
-
+        
         our_corr = compute_pearson_corr_coeff(relevance_bools_all, avg_scores_all)
         baseline_corr = compute_pearson_corr_coeff(relevance_bools_all, baseline_scores_all)
 
@@ -415,12 +460,12 @@ def experiment_driver(testloader,
         our_corrs.append(our_corr["PearsonRResult.statistic"]) # only track statistic, not pval
         baseline_corrs.append(baseline_corr["PearsonRResult.statistic"])
 
-        print(f"\n{i+1}. {res=}\n")
+        # print(f"\n{i+1}. {res=}\n")
 
-        # Every 30 iterations, save results to a json file
-        if i % 30 == 0 and i > 0:
-            save_results(i, results, our_corrs, baseline_corrs,
-                 intermediate=True, colab_download=True)
+        # # Every 30 iterations, save results to a json file
+        # if i % 30 == 0 and i > 0:
+        #     save_results(i, results, our_corrs, baseline_corrs,
+        #          intermediate=True, colab_download=True)
 
     # Save final results
     experiment_output = save_results(N, results, our_corrs, baseline_corrs,
