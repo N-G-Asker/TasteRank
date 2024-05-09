@@ -101,11 +101,12 @@ def evaluate_images(image_embeddings, text_inputs, model, device):
     tokenized_inputs = clip.tokenize(text_inputs).to(device)
     with torch.no_grad():
         # a matrix of shape t x d, containing t descriptor embeddings
-        text_embeddings = model.encode_text(tokenized_inputs)
+        text_embeddings = model.encode_text(tokenized_inputs).to(torch.float)
+
 
     # an m x d matrix assigning each image a score per descriptor
     similarity = torch.matmul(image_embeddings, text_embeddings.T).cpu().numpy()
-
+    
     avg_scores = np.average(similarity, axis=1)
     # print(f"{avg_scores.shape=}") # avg_scores.shape = (100,)
     
@@ -267,7 +268,7 @@ def score_baseline_and_ours(image_embeddings, labels_all, descriptors,
     """Simultaneously score baseline and our approach"""
     baseline_scores_all = []
 
-    # 1. Score our method on this batch
+    # 1. Score our method
     avg_scores = evaluate_images(image_embeddings, descriptors, model, device)
 
     avg_scores_all = avg_scores.tolist() # convert from np arrays
@@ -275,7 +276,7 @@ def score_baseline_and_ours(image_embeddings, labels_all, descriptors,
     relevance_bools_all = whitelist[labels_all].tolist()
 
 
-    # 2 Score baseline on this batch
+    # 2 Score baseline
     cats = [preference_concept] # preference concept categories/classes
     scores = evaluate_images(image_embeddings, cats, model, device)
 
@@ -311,7 +312,7 @@ def save_results(idx, results, our_corrs, baseline_corrs,
             # Final results
             outfile = f'ALL_{idx}_results_{timestamp}.json'
 
-        print(f"Saving results to JSON file {outfile}...")
+        print(f"\nSaving results to JSON file {outfile}...")
 
         our_corrs_summary = stats.describe(our_corrs)
         baseline_corrs_summary = stats.describe(baseline_corrs)
@@ -381,7 +382,7 @@ def save_results(idx, results, our_corrs, baseline_corrs,
         print("Failed to save results to JSON file.")
         return None
 
-def get_all_image_embeddings(dataloader, model, device):
+def get_all_image_embeddings(dataloader, test_size, model, device):
     """
     Following the docs at https://github.com/openai/CLIP explaining the API :
     > model.encode_image(image: Tensor)
@@ -390,18 +391,20 @@ def get_all_image_embeddings(dataloader, model, device):
     """
     labels_all = []
 
-    n = len(dataloader.dataset) # number of image samples in the dataset
-    d = 768 # length of the image embedding vector output by CLIP
-    X = torch.zeros(n, d) # placeholder matrix to store all embeddings
+    n = test_size # number of image samples in the dataset
+    d = 512 # length of the image embedding vector output by CLIP
+    X = torch.zeros(size=(n, d), dtype=torch.float).to(device) # placeholder matrix to store all embeddings
 
+    print("Getting image embeddings for all samples in testset:")
+    
     i = 0
-    for data in dataloader:
+    for data in tqdm(dataloader):
         images, labels = data
         num_images = images.shape[0]
-        index = torch.range(i, num_images)
-        
+        index = torch.arange(i, i+num_images).to(device)
+
         with torch.no_grad():
-            encoded_images = model.encode_image(images.to(device))
+            encoded_images = model.encode_image(images.to(device=device)).to(dtype=torch.float)
 
         X.index_copy_(0, index, encoded_images)
 
@@ -409,23 +412,27 @@ def get_all_image_embeddings(dataloader, model, device):
 
         labels_all += labels.cpu().numpy().tolist()
 
-    return (X.to(device), # a tensor of shape n x d
+    return (X, # a tensor of shape n x d
            labels_all)
 
 
 def experiment_driver(testloader,
+                      test_size, 
                       preferences: list[str],
                       descriptors_list: list[list[str]],
                       relevant_classes_list: list[list[str]],
                       model, device):
     """
     """
-    X, labels_all = get_all_image_embeddings(testloader, model, device) # a tensor of shape n x d
+    X, labels_all = get_all_image_embeddings(testloader, test_size, model, device) # a tensor of shape n x d
 
     results = []
     our_corrs = []
     baseline_corrs = []
     N = len(preferences)
+
+    print("\nComputing similarity scores between image embeddings and descriptor embeddings for every test:")
+    
     for i in tqdm(range(N)):
 
         preference = preferences[i]
@@ -436,7 +443,7 @@ def experiment_driver(testloader,
 
         score_output = score_baseline_and_ours(X, labels_all, descriptors, whitelist, preference, model, device)
         relevance_bools_all, avg_scores_all, baseline_scores_all = score_output
-
+        
         our_corr = compute_pearson_corr_coeff(relevance_bools_all, avg_scores_all)
         baseline_corr = compute_pearson_corr_coeff(relevance_bools_all, baseline_scores_all)
 
@@ -453,12 +460,12 @@ def experiment_driver(testloader,
         our_corrs.append(our_corr["PearsonRResult.statistic"]) # only track statistic, not pval
         baseline_corrs.append(baseline_corr["PearsonRResult.statistic"])
 
-        print(f"\n{i+1}. {res=}\n")
+        # print(f"\n{i+1}. {res=}\n")
 
-        # Every 30 iterations, save results to a json file
-        if i % 30 == 0 and i > 0:
-            save_results(i, results, our_corrs, baseline_corrs,
-                 intermediate=True, colab_download=True)
+        # # Every 30 iterations, save results to a json file
+        # if i % 30 == 0 and i > 0:
+        #     save_results(i, results, our_corrs, baseline_corrs,
+        #          intermediate=True, colab_download=True)
 
     # Save final results
     experiment_output = save_results(N, results, our_corrs, baseline_corrs,
