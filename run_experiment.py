@@ -11,6 +11,7 @@ import time
 import json
 from google.colab import files
 from tqdm import tqdm
+from collections import namedtuple
 
 def classify(im, labels, model, device):
     # image = preprocess(im).unsqueeze(0).to(device)
@@ -95,7 +96,7 @@ def score_images_on_attributes(images, attributes: list[str], model, device):
 
     return out_scores
 
-def evaluate_images(image_embeddings, text_inputs, model, device):
+def compute_avg_similarity(image_embeddings, text_inputs, model, device):
     """
     """
     tokenized_inputs = clip.tokenize(text_inputs).to(device)
@@ -105,12 +106,12 @@ def evaluate_images(image_embeddings, text_inputs, model, device):
 
 
     # an m x d matrix assigning each image a score per descriptor
-    similarity = torch.matmul(image_embeddings, text_embeddings.T).cpu().numpy()
+    similarity = torch.matmul(image_embeddings, text_embeddings.T).cpu()
     
-    avg_scores = np.average(similarity, axis=1)
+    avg_scores = torch.mean(similarity, 1)
     # print(f"{avg_scores.shape=}") # avg_scores.shape = (100,)
     
-    return avg_scores
+    return avg_scores, similarity
 
 
 ################################################################################
@@ -269,23 +270,21 @@ def score_baseline_and_ours(image_embeddings, labels_all, descriptors,
     baseline_scores_all = []
 
     # 1. Score our method
-    avg_scores = evaluate_images(image_embeddings, descriptors, model, device)
+    avg_scores, similarity_scores = compute_avg_similarity(image_embeddings, descriptors, model, device)
 
-    avg_scores_all = avg_scores.tolist() # convert from np arrays
-    # labels_all += labels.cpu().numpy().tolist()
     relevance_bools_all = whitelist[labels_all].tolist()
 
 
     # 2 Score baseline
     cats = [preference_concept] # preference concept categories/classes
-    scores = evaluate_images(image_embeddings, cats, model, device)
-
-    baseline_scores_all = scores.tolist() # convert from np arrays
+    baseline_scores, _baseline_similarity_scores = compute_avg_similarity(image_embeddings, cats, model, device)
 
     return (
         relevance_bools_all,    # new relevance labels we created
-        avg_scores_all,         # our scores
-        baseline_scores_all     # baseline CLIP
+        avg_scores,             # our scores
+        baseline_scores,        # baseline CLIP
+        similarity_scores       # similarity score matrix, containing individual 
+                                # score breakdown by descriptor for each image
         )
 
 def compute_pearson_corr_coeff(x, y):
@@ -382,7 +381,7 @@ def save_results(idx, results, our_corrs, baseline_corrs,
         print("Failed to save results to JSON file.")
         return None
 
-def get_all_image_embeddings(dataloader, test_size, model, device):
+def get_image_embeddings_and_metadata(dataloader, test_size, model, device):
     """
     Following the docs at https://github.com/openai/CLIP explaining the API :
     > model.encode_image(image: Tensor)
@@ -390,6 +389,7 @@ def get_all_image_embeddings(dataloader, test_size, model, device):
     > portion of the CLIP model.
     """
     labels_all = []
+    indices_all = []
 
     n = test_size # number of image samples in the dataset
     d = 512 # length of the image embedding vector output by CLIP
@@ -399,7 +399,7 @@ def get_all_image_embeddings(dataloader, test_size, model, device):
     
     i = 0
     for data in tqdm(dataloader):
-        images, labels = data
+        images, labels, indices = data
         num_images = images.shape[0]
         index = torch.arange(i, i+num_images).to(device)
 
@@ -411,9 +411,11 @@ def get_all_image_embeddings(dataloader, test_size, model, device):
         i += num_images
 
         labels_all += labels.cpu().numpy().tolist()
+        indices_all += indices.cpu().numpy().tolist()
 
     return (X, # a tensor of shape n x d
-           labels_all)
+           labels_all,
+           indices_all)
 
 
 def experiment_driver(testloader,
@@ -421,10 +423,15 @@ def experiment_driver(testloader,
                       preferences: list[str],
                       descriptors_list: list[list[str]],
                       relevant_classes_list: list[list[str]],
-                      model, device):
+                      model, device, k_val=4):
     """
     """
-    X, labels_all = get_all_image_embeddings(testloader, test_size, model, device) # a tensor of shape n x d
+    RetrievalInfo = namedtuple('RetrievalInfo', ['img_idx', 'avg_score', 'scores_by_descriptor'], defaults=(None, None, None))
+
+
+    X, labels_all, indices_all = get_image_embeddings_and_metadata(testloader, test_size, model, device) # a tensor of shape n x d
+
+    indices = torch.tensor(indices_all)
 
     results = []
     our_corrs = []
@@ -442,10 +449,25 @@ def experiment_driver(testloader,
         whitelist = get_whitelist(relevant_classes)
 
         score_output = score_baseline_and_ours(X, labels_all, descriptors, whitelist, preference, model, device)
-        relevance_bools_all, avg_scores_all, baseline_scores_all = score_output
+        relevance_bools_all, avg_scores_all, baseline_scores_all, similarity_scores = score_output
         
-        our_corr = compute_pearson_corr_coeff(relevance_bools_all, avg_scores_all)
-        baseline_corr = compute_pearson_corr_coeff(relevance_bools_all, baseline_scores_all)
+        our_corr = compute_pearson_corr_coeff(relevance_bools_all, 
+                                              avg_scores_all.tolist())
+        baseline_corr = compute_pearson_corr_coeff(relevance_bools_all,
+                                                   baseline_scores_all.tolist())
+        
+        top_values, top_indices = torch.topk(avg_scores_all, k=k_val, sorted=True)
+        
+        top_k_dataset_img_idx = indices[top_indices].tolist() # list of k indices
+        top_k_scores_by_descriptor = torch.index_select(similarity_scores, 0, top_indices).tolist() # list of k lists of scores
+
+        top_values_baseline, top_indices_baseline = torch.topk(baseline_scores_all, k=k_val, sorted=True)
+
+        top_k_dataset_img_idx_baseline = indices[top_indices_baseline].tolist() # list of k indices
+
+        top_k_ours = [ RetrievalInfo(img_idx, avg_score, scores)._asdict() for img_idx, avg_score, scores in zip(top_k_dataset_img_idx, top_values.tolist(), top_k_scores_by_descriptor)]
+        top_k_baseline = [ RetrievalInfo(img_idx, score)._asdict() for img_idx, score in zip(top_k_dataset_img_idx_baseline, top_values_baseline.tolist())]
+
 
         res = {
             "test_id": i+1,
@@ -453,7 +475,9 @@ def experiment_driver(testloader,
             "descriptors": descriptors,
             "relevant_classes": relevant_classes,
             "baseline correlation": baseline_corr,
-            "our correlation": our_corr
+            "our correlation": our_corr,
+            f"top_{k_val}_ours": top_k_ours,
+            f"top_{k_val}_baseline": top_k_baseline
         }
 
         results.append(res)
